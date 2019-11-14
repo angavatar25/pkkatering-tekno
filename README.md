@@ -1,1 +1,0 @@
-# pkkatering-tekno
