@@ -20,6 +20,7 @@ Auth::routes();
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
 Route::group(['prefix' => 'admin'], function () {
+    Route::get('/', 'DashboardController@index');
     Route::get('/dashboard', 'DashboardController@admin')->name('dashboard.admin');
 
     Route::group(['prefix' => 'role'], function () {
@@ -36,9 +37,11 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 Route::group(['prefix' => 'seller'], function () {
+    Route::get('/', 'DashboardController@index');
     Route::get('/dashboard', 'DashboardController@seller')->name('dashboard.seller');
 });
 
 Route::group(['prefix' => 'customer'], function () {
+    Route::get('/', 'DashboardController@index');
     Route::get('/dashboard', 'DashboardController@customer')->name('dashboard.customer');
 });
