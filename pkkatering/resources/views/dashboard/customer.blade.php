@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    Custommer Dashboard
                 </div>
             </div>
         </div>

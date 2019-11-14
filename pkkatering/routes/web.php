@@ -18,3 +18,15 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('/dashboard', 'DashboardController@admin')->name('dashboard.admin');
+});
+
+Route::group(['prefix' => 'seller'], function () {
+    Route::get('/dashboard', 'DashboardController@seller')->name('dashboard.seller');
+});
+
+Route::group(['prefix' => 'custommer'], function () {
+    Route::get('/dashboard', 'DashboardController@custommer')->name('dashboard.custommer');
+});
