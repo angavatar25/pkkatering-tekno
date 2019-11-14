@@ -32,6 +32,10 @@
                         <input type="hidden" name="id" value="{{$item->id}}">
                         <button type="submit">delete</button>
                     </form>
+
+                    <a href="{{route('role.assignee', ['id'=>$item->id])}}">
+                        <button>assign</button>
+                    </a>
                 </td>
             </tr>
         @endforeach

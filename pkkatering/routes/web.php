@@ -25,11 +25,13 @@ Route::group(['prefix' => 'admin'], function () {
     Route::group(['prefix' => 'role'], function () {
        Route::get('/', 'RoleController@index')->name('role');
        Route::get('/create', 'RoleController@create')->name('role.create');
+       Route::get('/assignee/{id}', 'RoleController@assignee')->name('role.assignee');
        
        Route::post('/edit', 'RoleController@edit')->name('role.edit');
        Route::post('/store', 'RoleController@store')->name('role.store');
        Route::post('/update', 'RoleController@update')->name('role.update');
        Route::post('/delete', 'RoleController@delete')->name('role.delete');
+       Route::post('/assign', 'RoleController@assign')->name('role.assign');
     });
 });
 
@@ -37,6 +39,6 @@ Route::group(['prefix' => 'seller'], function () {
     Route::get('/dashboard', 'DashboardController@seller')->name('dashboard.seller');
 });
 
-Route::group(['prefix' => 'custommer'], function () {
-    Route::get('/dashboard', 'DashboardController@custommer')->name('dashboard.custommer');
+Route::group(['prefix' => 'customer'], function () {
+    Route::get('/dashboard', 'DashboardController@customer')->name('dashboard.customer');
 });
