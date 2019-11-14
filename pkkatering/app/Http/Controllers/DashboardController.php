@@ -32,6 +32,8 @@ class DashboardController extends Controller
         {
             return redirect()->route('dashboard.seller');
         }
+
+        return redirect('/');
     }
 
     public function admin()

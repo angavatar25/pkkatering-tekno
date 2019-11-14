@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    Admin Dashboard
+                    <a href="{{route('role')}}">Role</a>
                 </div>
             </div>
         </div>
