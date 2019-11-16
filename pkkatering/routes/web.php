@@ -39,6 +39,16 @@ Route::group(['prefix' => 'admin'], function () {
 Route::group(['prefix' => 'seller'], function () {
     Route::get('/', 'DashboardController@index');
     Route::get('/dashboard', 'DashboardController@seller')->name('dashboard.seller');
+
+    Route::group(['prefix' => 'restaurant'], function () {
+        Route::get('/', 'RestaurantController@index')->name('restaurant');
+        Route::get('/create', 'RestaurantController@create')->name('restaurant.create');
+
+        Route::post('/edit', 'RestaurantController@edit')->name('restaurant.edit');
+        Route::post('/store', 'RestaurantController@store')->name('restaurant.store');
+        Route::post('/update', 'RestaurantController@update')->name('restaurant.update');
+        Route::post('/delete', 'RestaurantController@delete')->name('restaurant.delete');
+    });
 });
 
 Route::group(['prefix' => 'customer'], function () {

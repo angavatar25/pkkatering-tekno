@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class isAdmin
+class isRole
 {
     /**
      * Handle an incoming request.
@@ -13,9 +13,9 @@ class isAdmin
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next, $role)
     {
-        if(auth()->user()->hasRole('admin'))
+        if(auth()->user()->hasRole($role))
         {
             return $next($request);
         }

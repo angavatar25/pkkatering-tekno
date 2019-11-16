@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    Seller Dashboard
+                    <a href="{{route('restaurant')}}">Restaurant</a>
                 </div>
             </div>
         </div>

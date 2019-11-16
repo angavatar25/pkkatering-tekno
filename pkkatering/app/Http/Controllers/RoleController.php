@@ -12,18 +12,18 @@ class RoleController extends Controller
 {
     public function __construct(Request $request)
     {
-        $this->middleware('isAdmin');
+        $this->middleware('isRole:admin');
     }
 
     public function index()
     {
         $roles = Role::all();
-        return view('role.index', ['data' => $roles]);
+        return view('admin.role.index', ['data' => $roles]);
     }
 
     public function create()
     {
-        return view('role.create');
+        return view('admin.role.create');
     }
 
     public function store(Request $request)
@@ -44,7 +44,7 @@ class RoleController extends Controller
     public function edit(Request $request)
     {
         $role = Role::find($request->id);
-        return view('role.edit', ['data' => $role]);
+        return view('admin.role.edit', ['data' => $role]);
     }
 
     public function update(Request $request)
@@ -105,7 +105,7 @@ class RoleController extends Controller
 
             array_push($data, $temp);
         }
-        return view('role.assignee', ['data' => $data, 'id' => $id]);
+        return view('admin.role.assignee', ['data' => $data, 'id' => $id]);
     }
 
     public function assign(Request $request)
