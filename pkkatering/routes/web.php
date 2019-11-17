@@ -22,3 +22,15 @@ Route::get('/signup', function() {
 Route::get('/contoh', function() {
     return view('layout.template');
 });
+
+Route::get('/home', function() {
+    return view('layout.home');
+});
+
+Route::get('/home/makanan', function() {
+    return view('layout.makanan');
+});
+
+Route::get('/isidata', function() {
+    return view('detail.isipesan');
+});
