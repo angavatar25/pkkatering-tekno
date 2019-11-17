@@ -17,12 +17,20 @@ class RestaurantController extends Controller
 
     public function index()
     {
-        $restaurant = Restaurant::where('user_id', Auth::user()->id)->get();
+        $restaurant = Restaurant::where('user_id', Auth::user()->id)->first();
+        if(!$restaurant)
+        {
+            return redirect()->route('restaurant.create');
+        }
         return view('seller.restaurant.index', ['data' => $restaurant]);
     }
 
     public function create()
     {
+        if(Restaurant::where('user_id', Auth::user()->id)->first())
+        {
+            return redirect()->route('restaurant');
+        }
         $data = new \stdClass();
         $data->user_id = Auth::user()->id;
         $data->owner = Auth::user()->name;
@@ -65,6 +73,7 @@ class RestaurantController extends Controller
     public function delete(Request $request)
     {
         $restaurant = Restaurant::find($request->id);
+        $restaurant->foods()->delete();
         $restaurant->delete();
 
         return redirect()->route('restaurant');
