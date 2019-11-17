@@ -1,0 +1,58 @@
+html,
+body {
+  color: #fff;
+  background-color: #3776B4;
+}
+
+.login-container {
+  text-align: center;
+  margin: 30vh 0;
+}
+
+.login-container .input-container {
+  display: inline-grid !important;
+}
+
+.login-container .input-container input {
+  background: transparent;
+  width: 22vw;
+  height: 30px;
+  border-radius: 11px;
+  border-color: #fff;
+  margin: 6px 0;
+  padding-left: 20px;
+}
+
+.login-container .input-container input::-webkit-input-placeholder {
+  color: #fff;
+}
+
+.login-container .input-container input::-moz-placeholder {
+  color: #fff;
+}
+
+.login-container .input-container input:-ms-input-placeholder {
+  color: #fff;
+}
+
+.login-container .input-container input::-ms-input-placeholder {
+  color: #fff;
+}
+
+.login-container .input-container input::placeholder {
+  color: #fff;
+}
+
+.login-container .input-container button {
+  height: 30px;
+  border-radius: 11px;
+}
+
+.login-container .input-container .daftar-disini {
+  margin-top: 2.5rem;
+}
+
+.login-container .input-container .daftar-disini a {
+  color: #fff;
+}
+
