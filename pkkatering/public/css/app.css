@@ -1,3 +1,177 @@
+html,
+body {
+  background-color: #fff;
+}
+
+.card {
+  background-color: #F0F0F0;
+  padding: 5px;
+}
+
+.card .content-container {
+  color: #3776B4;
+}
+
+.card .content-container .button-card {
+  width: 100%;
+  background-color: #3776B4;
+}
+
+.card .content-container .button-card a {
+  color: #fff;
+}
+
+.card .content-container .detail-container {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+}
+
+.button {
+  height: 34px;
+  border-radius: 11px;
+  background-color: #3776B4;
+  color: #fff;
+  padding: 5px;
+}
+
+.navbar-container {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  margin: 20px 0;
+}
+
+.navbar-container .main-container {
+  display: -webkit-box;
+  display: flex;
+}
+
+.navbar-container .main-container .title {
+  font-size: 30px;
+}
+
+.navbar-container .main-container h1 {
+  margin: 0;
+  color: #3776B4;
+}
+
+.navbar-container .main-container .link-container {
+  margin: 0.625rem 0;
+}
+
+.navbar-container .main-container .link-container .link {
+  padding: 20px 30px;
+  color: #3776B4;
+}
+
+.navbar-container .logout-container {
+  margin: 0.625rem 0;
+}
+
+.login-container {
+  text-align: center;
+  margin: 30vh 0;
+}
+
+.login-container .title {
+  color: #3776B4;
+}
+
+.login-container .input-container {
+  display: inline-grid !important;
+}
+
+.login-container .input-container input {
+  background: transparent;
+  width: 22vw;
+  height: 40px;
+  border-radius: 11px;
+  border-color: #3776B4;
+  margin: 6px 0;
+  padding-left: 20px;
+}
+
+.login-container .input-container input::-webkit-input-placeholder {
+  color: #3776B4;
+}
+
+.login-container .input-container input::-moz-placeholder {
+  color: #3776B4;
+}
+
+.login-container .input-container input:-ms-input-placeholder {
+  color: #3776B4;
+}
+
+.login-container .input-container input::-ms-input-placeholder {
+  color: #3776B4;
+}
+
+.login-container .input-container input::placeholder {
+  color: #3776B4;
+}
+
+.login-container .input-container .daftar-disini {
+  margin-top: 2.5rem;
+  color: #3776B4;
+}
+
+.login-container .input-container .daftar-disini a {
+  color: #3776B4;
+}
+
+.home-page .card .content-container {
+  color: #3776B4;
+}
+
+.makanan .title {
+  color: #3776B4;
+  margin: 30px 0;
+}
+
+.makanan .menu-makanan .detail-container {
+  color: #3776B4;
+}
+
+.makanan .menu-makanan .detail-container .harga {
+  font-size: 25px;
+}
+
+.makanan .menu-makanan .detail-container .button {
+  margin: 30px 0;
+  width: 400px;
+}
+
+.isi-biodata .title {
+  color: #3776B4;
+  margin: 30px 0;
+}
+
+.isi-biodata input[type]:not([type=radio]) {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid gray;
+}
+
+.isi-biodata .form-container .total-harga {
+  position: relative;
+}
+
+.isi-biodata .form-container .total-harga .total-container {
+  position: absolute;
+  right: 0;
+}
+
+.isi-biodata .form-container .total-harga .total-container p {
+  color: #3776B4;
+  font-size: 25px;
+}
+
+.isi-biodata .form-container .total-harga .total-container .button {
+  width: 320px;
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
 /*!
