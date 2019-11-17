@@ -15,6 +15,7 @@
                     @endif
 
                     <a href="{{route('restaurant')}}">Restaurant</a>
+                    <a href="{{route('food')}}">Food</a>
                 </div>
             </div>
         </div>
