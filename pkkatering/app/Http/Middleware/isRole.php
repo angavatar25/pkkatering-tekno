@@ -4,8 +4,6 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-use Auth;
-
 class isRole
 {
     /**
@@ -17,16 +15,11 @@ class isRole
      */
     public function handle($request, Closure $next, $role)
     {
-        if(!Auth::user())
-        {
-            return route('login');
-        }
-        
-        if(Auth::user()->hasRole($role))
+        if(auth()->user()->hasRole($role))
         {
             return $next($request);
         }
         
-        return route('dashboard');
+        return redirect()->route('dashboard');
     }
 }

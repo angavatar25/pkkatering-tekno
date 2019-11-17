@@ -42,11 +42,6 @@ class User extends Authenticatable
         return $this->belongsToMany(Role::class);
     }
 
-    public function restaurant()
-    {
-        return $this->hasOne(Restaurant::class);
-    }
-
     public function authorizeRole($roles)
     {
         if (is_array($roles))

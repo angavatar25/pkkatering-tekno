@@ -49,16 +49,6 @@ Route::group(['prefix' => 'seller'], function () {
         Route::post('/update', 'RestaurantController@update')->name('restaurant.update');
         Route::post('/delete', 'RestaurantController@delete')->name('restaurant.delete');
     });
-
-    Route::group(['prefix' => 'food'], function () {
-        Route::get('/', 'FoodController@index')->name('food');
-        Route::get('/create', 'FoodController@create')->name('food.create');
-
-        Route::post('/edit', 'FoodController@edit')->name('food.edit');
-        Route::post('/store', 'FoodController@store')->name('food.store');
-        Route::post('/update', 'FoodController@update')->name('food.update');
-        Route::post('/delete', 'FoodController@delete')->name('food.delete');
-    });
 });
 
 Route::group(['prefix' => 'customer'], function () {

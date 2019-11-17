@@ -7,43 +7,37 @@
     <title>Restaurant</title>
 </head>
 <body>
+    <a href="{{route('restaurant.create')}}"><button>Create</button></a>
     <table>
         <tr>
-            <td>Nama</td>
-            <td>{{$data->name}}</td>
+            <th>Nama</th>
+            <th>Alamat</th>
+            <th>Nama Pemilik</th>
+            <th>No. Handphone</th>
+            <th>Email</th>
+            <th></th>
         </tr>
-        <tr>
-            <td>Alamat</td>
-            <td>{{$data->address}}</td>
-        </tr>
-        <tr>
-            <td>Nama Pemilik</td>
-            <td>{{$data->ownerName}}</td>
-        </tr>
-        <tr>
-            <td>No. Handphone</td>
-            <td>{{$data->contact}}</td>
-        </tr>
-        <tr>
-            <td>E-mail</td>
-            <td>{{$data->email}}</td>
-        </tr>
-        <tr>
-            <td>
-                <form action="{{route('restaurant.edit')}}" method="post">
-                    @csrf
-                    <input type="hidden" name="id" value="{{$data->id}}">
-                    <button type="submit">Edit</button>
-                </form>
-            </td>
-            <td>
-                <form action="{{route('restaurant.delete')}}" method="post">
+        @foreach ($data as $item)
+            <tr>
+                <td>{{$item->name}}</td>
+                <td>{{$item->address}}</td>
+                <td>{{$item->ownerName}}</td>
+                <td>{{$item->contact}}</td>
+                <td>{{$item->email}}</td>
+                <td>
+                    <form action="{{route('restaurant.edit')}}" method="post">
                         @csrf
-                        <input type="hidden" name="id" value="{{$data->id}}">
+                        <input type="hidden" name="id" value="{{$item->id}}">
+                        <button type="submit">Edit</button>
+                    </form>
+                    <form action="{{route('restaurant.delete')}}" method="post">
+                        @csrf
+                        <input type="hidden" name="id" value="{{$item->id}}">
                         <button type="submit">Delete</button>
                     </form>
-            </td>
-        </tr>
+                </td>
+            </tr>
+        @endforeach
     </table>
 </body>
 </html>
