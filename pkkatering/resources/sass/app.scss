@@ -3,7 +3,7 @@ $white: #fff;
 $card-background: #F0F0F0;
 
 html, body {
-    background-color: $white;
+    background-color: $white !important;
 }
 
 .card {
@@ -143,6 +143,13 @@ html, body {
                 }
             }
         }
+    }
+}
+
+//history
+.history {
+    .button-card {
+        background-color: #49CB71 !important;
     }
 }
 // Fonts

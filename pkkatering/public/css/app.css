@@ -2,7 +2,7 @@
 
 html,
 body {
-  background-color: #fff;
+  background-color: #fff !important;
 }
 
 .card {
@@ -177,6 +177,10 @@ body {
   width: 320px;
 }
 
+.history .button-card {
+  background-color: #49CB71 !important;
+}
+
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors
@@ -241,6 +245,16 @@ section {
   display: block;
 }
 
+body {
+  margin: 0;
+  font-family: "Nunito", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #3776B4;
+  text-align: left;
+  background-color: #f8fafc;
+}
 
 [tabindex="-1"]:focus {
   outline: 0 !important;

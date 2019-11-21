@@ -34,6 +34,10 @@ Route::get('/home/makanan', function() {
 Route::get('/isidata', function() {
     return view('detail.isipesan');
 });
+
+Route::get('/history', function() {
+    return view('layout.history');
+});
 Auth::routes();
 
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
