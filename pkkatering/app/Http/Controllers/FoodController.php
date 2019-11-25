@@ -26,9 +26,22 @@ class FoodController extends Controller
 
     public function index()
     {
-        $foods = Auth::user()->restaurant()->first()->foods()->get();
+        if(Auth::user()->hasRole('seller'))
+        {
+            $foods = Auth::user()->restaurant()->first()->foods()->get();
 
-        return view('seller.food.index', ['data' => $foods]);
+            return view('seller.food.index', ['data' => $foods]);
+        }
+        else
+        {
+            $foods = Food::all();
+            foreach($foods as $food)
+            {
+                $food->restaurant = $food->restaurant()->first()->name;
+            }
+
+            return view('customer.food.index', ['data' => $foods]);
+        }
     }
 
     public function create()
@@ -45,6 +58,16 @@ class FoodController extends Controller
         $food->name = $request->name;
         $food->price = $request->price;
         $food->notes = $request->notes;
+
+        if($request->file('image')->isValid())
+        {
+            $file = $request->file('image');
+            $encrypted = uniqid();
+            $file->move(public_path('foods'), $encrypted);
+            $file = 'foods/' . $encrypted;
+            $food->file = $file;
+        }
+
         $food->save();
 
         return redirect()->route('food');
@@ -63,6 +86,16 @@ class FoodController extends Controller
         $food->name = $request->name;
         $food->price = $request->price;
         $food->notes = $request->notes;
+
+        if($request->file('image')->isValid())
+        {
+            $file = $request->file('image');
+            $encrypted = uniqid();
+            $file->move(public_path('foods'), $encrypted);
+            $file = 'foods/' . $encrypted;
+            $food->file = $file;
+        }
+
         $food->save();
 
         return redirect()->route('food');

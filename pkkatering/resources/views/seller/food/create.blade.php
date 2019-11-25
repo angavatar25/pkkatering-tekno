@@ -7,7 +7,7 @@
     <title>Create Food</title>
 </head>
 <body>
-    <form action="{{route('food.store')}}" method="post">
+    <form action="{{route('food.store')}}" method="post" enctype="multipart/form-data">
         @csrf
         <input type="hidden" name="restaurant_id" value="{{$data->restaurant_id}}">
         <table>
@@ -22,6 +22,10 @@
             <tr>
                 <td><label for="notes">Catatan</label></td>
                 <td><input type="text" name="notes"></td>
+            </tr>
+            <tr>
+                <td><label for="image">Foto</label></td>
+                <td><input type="file" name="image"></td>
             </tr>
         </table>
         <button type="submit">Submit</button>

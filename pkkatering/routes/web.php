@@ -12,32 +12,33 @@
 */
 
 Route::get('/', function () {
-    return view('login');
+    // return view('login');
+    return view('welcome');
 });
 
-Route::get('/signup', function() {
-    return view('signup');
-});
+// Route::get('/signup', function() {
+//     return view('signup');
+// });
 
-Route::get('/contoh', function() {
-    return view('layout.template');
-});
+// Route::get('/contoh', function() {
+//     return view('layout.template');
+// });
 
-Route::get('/home', function() {
-    return view('layout.home');
-});
+// Route::get('/home', function() {
+//     return view('layout.home');
+// });
 
-Route::get('/home/makanan', function() {
-    return view('layout.makanan');
-});
+// Route::get('/home/makanan', function() {
+//     return view('layout.makanan');
+// });
 
-Route::get('/isidata', function() {
-    return view('detail.isipesan');
-});
+// Route::get('/isidata', function() {
+//     return view('detail.isipesan');
+// });
 
-Route::get('/history', function() {
-    return view('layout.history');
-});
+// Route::get('/history', function() {
+//     return view('layout.history');
+// });
 Auth::routes();
 
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
@@ -87,4 +88,8 @@ Route::group(['prefix' => 'seller'], function () {
 Route::group(['prefix' => 'customer'], function () {
     Route::get('/', 'DashboardController@index');
     Route::get('/dashboard', 'DashboardController@customer')->name('dashboard.customer');
+
+    Route::group(['prefix' => 'food'], function () {
+        Route::get('/', 'FoodController@index')->name('food');
+    });
 });

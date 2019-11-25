@@ -34,7 +34,7 @@ class DashboardController extends Controller
 
         if($request->user()->hasRole('customer'))
         {
-            return redirect()->route('dashboard.seller');
+            return redirect()->route('dashboard.customer');
         }
 
         return redirect('/');

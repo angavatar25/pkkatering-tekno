@@ -23,6 +23,10 @@
                 <td><label for="notes">Catatan</label></td>
                 <td><input type="text" name="notes" value="{{$data->notes}}"></td>
             </tr>
+            <tr>
+                <td><label for="image">Foto</label></td>
+                <td><input type="file" name="image"></td>
+            </tr>
         </table>
         <button type="submit">Submit</button>
     </form>
