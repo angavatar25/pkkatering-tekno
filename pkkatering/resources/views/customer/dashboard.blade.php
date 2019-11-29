@@ -14,6 +14,7 @@
                         </div>
                     @endif
                     <a href="{{route('food')}}">Food</a>
+                    <a href="{{route('transaction')}}">Transaction</a>
                 </div>
             </div>
         </div>

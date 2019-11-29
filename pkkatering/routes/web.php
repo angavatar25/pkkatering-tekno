@@ -92,4 +92,12 @@ Route::group(['prefix' => 'customer'], function () {
     Route::group(['prefix' => 'food'], function () {
         Route::get('/', 'FoodController@index')->name('food');
     });
+
+    Route::group(['prefix' => 'transaction'], function () {
+        Route::get('/', 'TransactionController@index')->name('transaction');
+        Route::get('/detail/{id}', 'TransactionController@detail')->name('transaction.detail');
+
+        Route::post('/create', 'TransactionController@create')->name('transaction.create');
+        Route::post('/store', 'TransactionController@store')->name('transaction.store');
+    });
 });

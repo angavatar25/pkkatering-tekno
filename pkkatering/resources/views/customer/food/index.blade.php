@@ -22,6 +22,13 @@
                 <td>{{$food->price}}</td>
                 <td>{{$food->notes}}</td>
                 <td><img src="{{ asset($food->file) }}" alt="{{$food->name}}" style="width:100px; height:auto;" onerror="this.onerror=null;this.src='{{asset('404.jpg')}}';"></td>
+                <td>
+                    <form action="{{route('transaction.create')}}" method="post">
+                        @csrf
+                        <input type="hidden" name="id" value="{{$food->id}}">
+                        <button type="submit">Pesan</button>
+                    </form>
+                </td>
             </tr>
         @endforeach
     </table>
