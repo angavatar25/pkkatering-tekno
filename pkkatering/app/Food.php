@@ -10,4 +10,9 @@ class Food extends Model
     {
         return $this->belongsTo(Restaurant::class);
     }
+
+    public function transaction()
+    {
+        return $this->hasMany(Transaction::class);
+    }
 }

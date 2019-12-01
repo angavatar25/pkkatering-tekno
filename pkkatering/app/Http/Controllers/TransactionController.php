@@ -27,27 +27,30 @@ class TransactionController extends Controller
 
     public function index()
     {
-        function custom_sort($a, $b)
-        {
-            return $a->created_at - $b_created_at;
-        }
-
         if(Auth::user()->hasRole('seller'))
         {
             $foods = Auth::user()->restaurant()->first()->foods()->get();
             $transactions = [];
             foreach ($foods as $food) {
-                $transaction = Transaction::where('food_id'. $food->id)->orderBy('created_at', 'DESC')->get();
-                $transactions = array_merge($transactions, $transaction);
+                $transaction = Transaction::where('food_id', $food->id)->orderBy('created_at', 'DESC')->get();
+                foreach ($transaction as $t) {
+                    $t->user = $t->user()->first();
+                    $t->food = $t->food()->first();
+                    array_push($transactions, $t);
+                }
             }
 
-            usort($transactions, 'custom_sort');
+            usort($transactions, array($this, 'custom_sort'));
 
             return view('seller.transaction.index', ['data' => $transactions]);
         }
         else
         {
-            $transactions = Transaction::where('user_id', Auth::user()->id)->get();
+            $transactions = Auth::user()->transaction()->orderBy('created_at', 'DESC')->get();
+
+            foreach ($transactions as $transaction) {
+                $transaction->food = $transaction->food()->first();
+            }
 
             return view('customer.transaction.index', ['data' => $transactions]);
         }
@@ -56,13 +59,29 @@ class TransactionController extends Controller
     public function detail($id)
     {
         $transaction = Transaction::find($id);
-        if
-        if($transaction->user_id != Auth::user()->id)
+        $transaction->delivery_type = $this->delivery_type_translator($transaction->delivery_type);
+        $transaction->payment_type = $this->payment_type_translator($transaction->payment_type);
+        $transaction->status = $this->status_translator($transaction->status);
+        $transaction->user = $transaction->user()->first();
+        $transaction->food = $transaction->food()->first();
+        if(Auth::user()->hasRole('seller'))
         {
-            return redirect()->route('dashboard');
-        }
+            if($transaction->food()->first()->restaurant()->first()->user()->first()->id != Auth::user()->id)
+            {
+                return redirect()->route('dashboard');
+            }
 
-        return view()
+            return view('seller.transaction.detail', ['data' => $transaction]);
+        }
+        else
+        {
+            if($transaction->user_id != Auth::user()->id)
+            {
+                return redirect()->route('dashboard');
+            }
+
+            return view('customer.transaction.detail', ['data' => $transaction]);
+        }
     }
 
     public function create(Request $request)
@@ -88,5 +107,73 @@ class TransactionController extends Controller
         $transaction->save();
 
         return redirect()->route('transaction.detail', $transaction->id);
+    }
+
+    public function proof(Request $request)
+    {
+        $transaction = Transaction::find($request->id);
+
+        if($request->file('image')->isValid())
+        {
+            $file = $request->file('image');
+            $encrypted = uniqid();
+            $file->move(public_path('proofs'), $encrypted);
+            $file = 'proofs/' . $encrypted;
+            $transaction->proof = $file;
+            $transaction->status = 1;
+        }
+
+        $transaction->save();
+
+        return redirect()->back();
+    }
+
+    public function status(Request $request)
+    {
+        $transaction = Transaction::find($request->id);
+        $transaction->status = $request->status;
+
+        if($transaction->status == 0)
+        {
+            $transaction->proof = null;
+        }
+
+        $transaction->save();
+
+        return redirect()->back();
+    }
+
+    public function custom_sort($a, $b)
+    {
+        return $a->created_at - $b_created_at;
+    }
+
+    private function delivery_type_translator($delivery_type)
+    {
+        $delivery_type = ($delivery_type == 1) ? 'GO-SEND' : $delivery_type;
+        $delivery_type = ($delivery_type == 2) ? 'Grab Send' : $delivery_type;
+        $delivery_type = ($delivery_type == 3) ? 'Ambil Sendiri' : $delivery_type;
+
+        return $delivery_type;
+    }
+
+    private function payment_type_translator($payment_type)
+    {
+        $payment_type = ($payment_type == 1) ? 'Transfer Bank' : $payment_type;
+        $payment_type = ($payment_type == 2) ? 'GO-PAY' : $payment_type;
+        $payment_type = ($payment_type == 3) ? 'Tunai' : $payment_type;
+
+        return $payment_type;
+    }
+
+    private function status_translator($status)
+    {
+        $status = ($status == 0) ? 'Menunggu Pembayaran' : $status;
+        $status = ($status == 1) ? 'Menunggu Konfirmasi Restaurant' : $status;
+        $status = ($status == 2) ? 'Pesanan Dikonfirmasi' : $status;
+        $status = ($status == 3) ? 'Pesanan Siap Dikirim atau Diambil' : $status;
+        $status = ($status == 4) ? 'Pesanan Selesai' : $status;
+
+        return $status;
     }
 }

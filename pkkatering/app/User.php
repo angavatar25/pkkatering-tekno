@@ -47,6 +47,11 @@ class User extends Authenticatable
         return $this->hasOne(Restaurant::class);
     }
 
+    public function transaction()
+    {
+        return $this->hasMany(Transaction::class);
+    }
+
     public function authorizeRole($roles)
     {
         if (is_array($roles))

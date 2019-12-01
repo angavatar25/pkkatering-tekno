@@ -1,3 +1,4 @@
+{{-- {{dd($data)}} --}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +11,7 @@
     <table border="1">
         <tr>
             <th>Transaction ID</th>
+            <th>Pembeli</th>
             <th>Nama Makanan</th>
             <th>Gambar Makanan</th>
             <th>Harga Satuan</th>
@@ -19,6 +21,7 @@
         @foreach ($data as $item)
             <tr>
                 <td>{{$item->id}}</td>
+                <td>{{$item->user->name}}</td>
                 <td>{{$item->food->name}}</td>
                 <td><img src="{{asset($item->food->file)}}" alt="{{$item->food->name}}" style="width:100px; height:auto;" onerror="this.onerror=null;this.src='{{asset('404.jpg')}}';"></td>
                 <td>{{$item->food->price}}</td>

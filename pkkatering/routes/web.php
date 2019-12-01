@@ -73,31 +73,29 @@ Route::group(['prefix' => 'seller'], function () {
         Route::post('/update', 'RestaurantController@update')->name('restaurant.update');
         Route::post('/delete', 'RestaurantController@delete')->name('restaurant.delete');
     });
-
-    Route::group(['prefix' => 'food'], function () {
-        Route::get('/', 'FoodController@index')->name('food');
-        Route::get('/create', 'FoodController@create')->name('food.create');
-
-        Route::post('/edit', 'FoodController@edit')->name('food.edit');
-        Route::post('/store', 'FoodController@store')->name('food.store');
-        Route::post('/update', 'FoodController@update')->name('food.update');
-        Route::post('/delete', 'FoodController@delete')->name('food.delete');
-    });
 });
 
 Route::group(['prefix' => 'customer'], function () {
     Route::get('/', 'DashboardController@index');
     Route::get('/dashboard', 'DashboardController@customer')->name('dashboard.customer');
+});
 
-    Route::group(['prefix' => 'food'], function () {
-        Route::get('/', 'FoodController@index')->name('food');
-    });
+Route::group(['prefix' => 'food'], function () {
+    Route::get('/', 'FoodController@index')->name('food');
+    Route::get('/create', 'FoodController@create')->name('food.create');
 
-    Route::group(['prefix' => 'transaction'], function () {
-        Route::get('/', 'TransactionController@index')->name('transaction');
-        Route::get('/detail/{id}', 'TransactionController@detail')->name('transaction.detail');
+    Route::post('/edit', 'FoodController@edit')->name('food.edit');
+    Route::post('/store', 'FoodController@store')->name('food.store');
+    Route::post('/update', 'FoodController@update')->name('food.update');
+    Route::post('/delete', 'FoodController@delete')->name('food.delete');
+});
 
-        Route::post('/create', 'TransactionController@create')->name('transaction.create');
-        Route::post('/store', 'TransactionController@store')->name('transaction.store');
-    });
+Route::group(['prefix' => 'transaction'], function () {
+    Route::get('/', 'TransactionController@index')->name('transaction');
+    Route::get('/detail/{id}', 'TransactionController@detail')->name('transaction.detail');
+
+    Route::post('/create', 'TransactionController@create')->name('transaction.create');
+    Route::post('/store', 'TransactionController@store')->name('transaction.store');
+    Route::post('/proof', 'TransactionController@proof')->name('transaction.proof');
+    Route::post('/status', 'TransactionController@status')->name('transaction.status');
 });

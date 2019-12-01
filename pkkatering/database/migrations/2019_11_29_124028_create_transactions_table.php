@@ -25,7 +25,7 @@ class CreateTransactionsTable extends Migration
             $table->integer('delivery_type');
             $table->integer('payment_type');
             $table->string('proof')->nullable();
-            $table->integer('confirmation')->default(0);
+            $table->integer('status')->default(0);
             $table->timestamps();
         });
     }
