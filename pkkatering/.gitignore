@@ -2,6 +2,7 @@
 /public/hot
 /public/storage
 /public/foods/*
+/public/proofs/*
 !/public/foods/placeholder.txt
 !/public/proofs/placeholder.txt
 /storage/*.key
