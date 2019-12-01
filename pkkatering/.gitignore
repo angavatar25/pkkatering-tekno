@@ -3,6 +3,7 @@
 /public/storage
 /public/foods/*
 !/public/foods/placeholder.txt
+!/public/proofs/placeholder.txt
 /storage/*.key
 /vendor
 .env
