@@ -33,6 +33,16 @@ html, body {
     padding: 5px;
 }
 
+.btn-blue {
+    background-color: $body-color !important;
+    color: $white !important;
+}
+
+.btn-red {
+    background-color: red !important;
+    color: $white !important;
+}
+
 //navbar
 .navbar-container {
     display: flex;
@@ -150,6 +160,72 @@ html, body {
 .history {
     .button-card {
         background-color: #49CB71 !important;
+    }
+}
+
+.admin-role {
+    .btn-create {
+        margin: 20px 0;
+    }
+    table {
+        .header-table {
+            background-color: $card-background;
+        }
+        tr {
+            .btn-action {
+                display: flex;
+            }
+            td {
+                padding: 20px 10px;
+            }
+            th {
+                padding: 20px 10px;
+                h2 {margin: 0;}
+            }
+        }
+    }
+}
+
+.assign-role {
+    .btn-create {
+        margin: 20px 0;
+    }
+    table {
+        .header-table {
+            background-color: $card-background;
+        }
+        tr {
+            .btn-action {
+                display: flex;
+            }
+            td {
+                padding: 20px 10px;
+            }
+            th {
+                padding: 20px 10px;
+                h2 {margin: 0;}
+            }
+        }
+    }
+}
+
+.admin-edit, .admin-create {
+    padding: 20px 0;
+    .input {
+        display: table-caption;
+    }
+    .btn {
+        margin: 20px 0;
+    }
+}
+
+.owner-create {
+    padding: 20px 0;
+    .input {
+        display: inline-grid;
+    }
+    .btn {
+        margin: 20px 0;
     }
 }
 // Fonts

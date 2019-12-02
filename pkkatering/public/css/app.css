@@ -38,6 +38,16 @@ body {
   padding: 5px;
 }
 
+.btn-blue {
+  background-color: #3776B4 !important;
+  color: #fff !important;
+}
+
+.btn-red {
+  background-color: red !important;
+  color: #fff !important;
+}
+
 .navbar-container {
   display: -webkit-box;
   display: flex;
@@ -179,6 +189,83 @@ body {
 
 .history .button-card {
   background-color: #49CB71 !important;
+}
+
+.admin-role .btn-create {
+  margin: 20px 0;
+}
+
+.admin-role table .header-table {
+  background-color: #F0F0F0;
+}
+
+.admin-role table tr .btn-action {
+  display: -webkit-box;
+  display: flex;
+}
+
+.admin-role table tr td {
+  padding: 20px 10px;
+}
+
+.admin-role table tr th {
+  padding: 20px 10px;
+}
+
+.admin-role table tr th h2 {
+  margin: 0;
+}
+
+.assign-role .btn-create {
+  margin: 20px 0;
+}
+
+.assign-role table .header-table {
+  background-color: #F0F0F0;
+}
+
+.assign-role table tr .btn-action {
+  display: -webkit-box;
+  display: flex;
+}
+
+.assign-role table tr td {
+  padding: 20px 10px;
+}
+
+.assign-role table tr th {
+  padding: 20px 10px;
+}
+
+.assign-role table tr th h2 {
+  margin: 0;
+}
+
+.admin-edit,
+.admin-create {
+  padding: 20px 0;
+}
+
+.admin-edit .input,
+.admin-create .input {
+  display: table-caption;
+}
+
+.admin-edit .btn,
+.admin-create .btn {
+  margin: 20px 0;
+}
+
+.owner-create {
+  padding: 20px 0;
+}
+
+.owner-create .input {
+  display: inline-grid;
+}
+
+.owner-create .btn {
+  margin: 20px 0;
 }
 
 /*!
