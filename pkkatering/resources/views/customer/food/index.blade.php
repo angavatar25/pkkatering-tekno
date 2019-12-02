@@ -8,8 +8,9 @@
     <title>Food List</title>
 </head>
 <body>
-    <div class="container">
-        <table>
+    <div class="container customer-food">
+        <h1>Daftar Makanan</h1>
+        <table border="1">
             <tr>
                 <th>Restaurant</th>
                 <th>Nama</th>

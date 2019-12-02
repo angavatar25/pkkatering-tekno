@@ -268,6 +268,90 @@ body {
   margin: 20px 0;
 }
 
+.seller-restaurant,
+.seller-edit {
+  margin: 40px 0;
+}
+
+.seller-restaurant table,
+.seller-edit table {
+  margin: 40px 0;
+}
+
+.seller-restaurant table td,
+.seller-edit table td {
+  width: 60%;
+}
+
+.seller-food {
+  margin: 40px 0;
+}
+
+.seller-food table {
+  width: 100%;
+}
+
+.seller-food table tr .button-action {
+  display: -webkit-box;
+  display: flex;
+}
+
+.seller-edit,
+.seller-createmakanan {
+  margin: 40px 0;
+}
+
+.seller-edit table tr,
+.seller-createmakanan table tr {
+  display: grid;
+}
+
+.seller-edit .btn-submit,
+.seller-createmakanan .btn-submit {
+  margin: 40px 0;
+}
+
+.transaction {
+  margin: 40px 0;
+}
+
+.transaction table {
+  width: 100%;
+}
+
+.transaction table tr th {
+  font-size: 15px;
+  padding: 20px 0;
+}
+
+.customer-food,
+.customer-transaction {
+  margin: 40px 0;
+}
+
+.customer-food table,
+.customer-transaction table {
+  width: 100%;
+}
+
+.customer-food table tr th,
+.customer-transaction table tr th {
+  font-size: 15px;
+  padding: 20px 0;
+}
+
+.customer-transaction .header-container {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+}
+
+.customer-transaction .header-container a {
+  font-size: 15px;
+  font-weight: bold;
+}
+
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors

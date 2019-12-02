@@ -228,6 +228,75 @@ html, body {
         margin: 20px 0;
     }
 }
+
+.seller-restaurant, .seller-edit {
+    margin: 40px 0;
+    table {
+        margin: 40px 0;
+        td {width: 60%;}
+    }
+}
+
+.seller-food {
+    margin: 40px 0;
+    table {
+        width: 100%;
+        tr {
+            .button-action {
+                display: flex;
+            }
+        }
+    }
+}
+
+.seller-edit, .seller-createmakanan {
+    margin: 40px 0;
+    table {
+        tr {
+            display: grid;
+        }
+    }
+    .btn-submit {
+        margin: 40px 0;
+    }
+}
+
+.transaction {
+    margin: 40px 0;
+    table {
+        width: 100%;
+        tr {
+            th {
+                font-size: 15px;
+                padding: 20px 0;
+            }
+        }
+    }
+}
+
+.customer-food, .customer-transaction {
+    margin: 40px 0;
+    table {
+        width: 100%;
+        tr {
+            th {
+                font-size: 15px;
+                padding: 20px 0;
+            }
+        }
+    }
+}
+
+.customer-transaction {
+    .header-container {
+        display: flex;
+        justify-content: space-between;
+        a {
+            font-size: 15px;
+            font-weight: bold;
+        }
+    }
+}
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
