@@ -16,29 +16,33 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/signup', function() {
-//     return view('signup');
-// });
+Route::get('/signup', function() {
+    return view('signup');
+});
 
-// Route::get('/contoh', function() {
-//     return view('layout.template');
-// });
+Route::get('/contoh', function() {
+    return view('layout.template');
+});
 
-// Route::get('/home', function() {
-//     return view('layout.home');
-// });
+Route::get('/home', function() {
+    return view('layout.home');
+});
 
-// Route::get('/home/makanan', function() {
-//     return view('layout.makanan');
-// });
+Route::get('/home/makanan', function() {
+    return view('layout.makanan');
+});
 
-// Route::get('/isidata', function() {
-//     return view('detail.isipesan');
-// });
+Route::get('/isidata', function() {
+    return view('detail.isipesan');
+});
 
-// Route::get('/history', function() {
-//     return view('layout.history');
-// });
+Route::get('/history', function() {
+    return view('layout.history');
+});
+
+Route::get('/buktitransaksi', function() {
+    return view('layout.inputbukti');
+});
 Auth::routes();
 
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
